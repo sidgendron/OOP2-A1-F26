@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
-    public String aName;
-    public LocalDate aDOB;
-    public String aEmail;
-    public boolean aHasParkingPass;
-    public static List<Person> aPersons = new ArrayList<>();
+    private String aName;
+    private LocalDate aDOB;
+    private String aEmail;
+    private boolean aHasParkingPass;
+    private static List<Person> aPersons = new ArrayList<>();
 
     public Person(String pName, LocalDate pDOB, String pEmail) {
         this.aName = pName;
