@@ -40,6 +40,7 @@ public class Person {
      * @param pEmail String value of the person's email address to be copied.
      * @throws IllegalArgumentException If the person's name, date of birth, or email address are null.
      * @throws IllegalArgumentException If the person's name or email address only contain whitespaces.
+     * @throws IllegalArgumentException If the person's date of birth is in the future.
      * @throws IllegalArgumentException If the person's email address has an incorrect format.
      * @throws IllegalArgumentException If the person is already registered.
      */
@@ -52,6 +53,12 @@ public class Person {
         // Check if the person's name or email only contain whitespaces.
         if (pName.isBlank() || pEmail.isBlank()) {
             throw new IllegalArgumentException("The person's name and email address must contain proper information.");
+        }
+
+        // Check if the person's date of birth is in the future.
+        LocalDate currentDate = LocalDate.now();
+        if (pDOB.isAfter(currentDate)) {
+            throw new IllegalArgumentException("The person's date of birth cannot be in the future.");
         }
 
         // The format of a proper email address.
